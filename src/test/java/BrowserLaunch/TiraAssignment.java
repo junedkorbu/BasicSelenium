@@ -1,0 +1,28 @@
+package BrowserLaunch;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TiraAssignment {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		ChromeDriver d = new ChromeDriver();
+		d.manage().window().maximize();		
+		d.get("https://www.tirabeauty.com/?gclid=Cj0KCQiAwvKtBhDrARIsAJj-kTjNbJER809bHTwIvw-5PBRb0s7bA3RmX8yYuXVGdq71g35S4j9XCYUaAoRYEALw_wcB");
+		
+		WebElement a = d.findElement(By.id("search"));
+		a.sendKeys("Perfume");
+		a.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);
+		
+		d.findElement(By.xpath("(//img[@class='fy__img image'])[2]")).click();
+		
+		Thread.sleep(2000);
+		
+		d.findElement(By.xpath("//span[contains(text(),'Save to Wishlist')]")).click();
+	}
+}
